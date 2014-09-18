@@ -1,22 +1,22 @@
 #!/bin/bash
-# Bash script to easily create angular app client file structure.
+# Bash script that easily generates angular app client file structure.
 # A huge thanks to Jonathan Warrick who created the first version of this script at https://github.com/JonathanWarrick/FolderCreationScript
 # Example use:
-# From current folder, type ./createNgFolders.sh my_scripts module1 test
-# The above command will create:
-#├── my_scripts
+# Type ./generateModule.sh ./some/path module1 testModule
+
+# The above command will create the following in the './some/path' directory:
 #    │    ├── module1             
 #    │    │   ├── module1.controller.js  
 #    │    │   ├── module1.spec.js  
 #    │    │   ├── module1.html    
 #    │    │   ├── module1.services.js
 #    │    │   ├── module1.css
-#    │    ├── test             
-#    │    │   ├── test.controller.js  
-#    │    │   ├── test.spec.js  
-#    │    │   ├── test.html    
-#    │    │   ├── test.services.js
-#    │    │   ├── test.css
+#    │    ├── testModule             
+#    │    │   ├── testModule.controller.js  
+#    │    │   ├── testModule.spec.js  
+#    │    │   ├── testModule.html    
+#    │    │   ├── testModule.services.js
+#    │    │   ├── testModule.css
 
 FOLDER_PATH=$1
 
@@ -24,7 +24,6 @@ ARGS=("$@")
 COUNT=$#
 START=1
 
-mkdir $FOLDER_PATH
 cd $FOLDER_PATH
 
 while [ $START -lt $COUNT ]; do
