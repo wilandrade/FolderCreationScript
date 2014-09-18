@@ -1,73 +1,71 @@
 FolderCreationScript
 ==============
+A huge thanks to Jonathan Warrick who created the first version of this script at https://github.com/JonathanWarrick/FolderCreationScript
 
-Bash script to automate folder creation for both client- and server-side modules.
-Perfect for MEAN stack applications.
+Bash script to easily generate AngularJS app module files and directories.
 
 ## Usage
 To use the script, include it in the root directory of your project.
-From the root directory, run the script, passing it three parameters:
+Run the script passing it a directory where your modules will be created and the name of all modules that you want to create.
+
 ```
-./FolderCreationScript.sh CLIENT/SERVER PATH MODULE1 MODULE2 ... MODULEN
+./generateModules.sh PATH MODULE1 MODULE2 ... MODULE_N
 ```
-For a client-side creation, the following files will be generated:
+The following file structure will be generated:
 ```
-MODULE.controller.js
-MODULE.controller.spec.js
-MODULE.css
-MODULE.html
-MODULE.js
-```
-For a server-side creation, the following files will be generated:
-```
-index.js
-MODULE.controller.js
-MODULE.model.js
-MODULE.model.spec.js
-MODULE.spec.js
+├── PATH
+│    ├── MODULE1             
+│    │   ├── MODULE1.controller.js  
+│    │   ├── MODULE1.spec.js  
+│    │   ├── MODULE1.html    
+│    │   ├── MODULE1.services.js
+│    │   ├── MODULE1.css
+│    ├── MODULE2             
+│    │   ├── MODULE2.controller.js  
+│    │   ├── MODULE2.spec.js  
+│    │   ├── MODULE2.html    
+│    │   ├── MODULE2.services.js
+│    │   ├── MODULE2.css
+│    │
+│    ├── ......
+│    │
+│    ├── MODULE_N
+
 ```
 
-* The CLIENT/SERVER parameter is where you specify whether you want to create a client-side folder or a server-side folder (see above for the different structures).
-* The PATH parameter specifies where to create the new directory and corresponding files. Enter the path parameter in relation to the root directory (i.e.; from where the script is run). Do NOT include the name of the module itself (a folder with the name of each module will automatically be created).
-* The MODULE parameters are the names of the new modules you are creating. This will be the name of each new folder created in the specified path as well as the start of all files in the folder.
+* The PATH parameter specifies the directory that will house your new modules. This directory must already exist.
+* The MODULE parameters are the names of the new modules you are creating. This will be the name of each new folder that will be generated and the start name of all files in the folder.
 
-Below is an example of how you would use the script to create three folders:
+Below is an example of how you would use the script to create three modules:
 ```
-./FolderCreationScript.sh client client/app module1 module2 module3
+./generateModules.sh ../app/client index user_profile search
 ```
-The above would result in the following files being generated in the following path:
+The above would result in the following files being generated in the ../app/client directory:
 ```
-root
-  |
-   -client
-      |
-       -app
-          |
-           -testingFolders
-              |
-              |-module1
-              |    |-module1.controller.js
-              |    |-module1.controller.spec.js
-              |    |-module1.css
-              |    |-module1.html
-              |    |-module1.js
-              |-module2
-              |    |-module2.controller.js
-              |    |-module2.controller.spec.js
-              |    |-module2.css
-              |    |-module2.html
-              |    |-module2.js
-              |-module3
-              |    |-module3.controller.js
-              |    |-module3.controller.spec.js
-              |    |-module3.css
-              |    |-module3.html
-              |    |-module3.js                            
+├── client
+│    ├── index 
+│    │   ├── index.controller.js  
+│    │   ├── index.spec.js  
+│    │   ├── index.html    
+│    │   ├── index.services.js
+│    │   ├── index.css
+│    ├── user_profile
+│    │   ├── user_profile.controller.js  
+│    │   ├── user_profile.spec.js  
+│    │   ├── user_profile.html    
+│    │   ├── user_profile.services.js
+│    │   ├── user_profile.css
+│    ├── search
+│    │   ├── search.controller.js  
+│    │   ├── search.spec.js  
+│    │   ├── search.html    
+│    │   ├── search.services.js
+│    │   ├── search.css
 ```
 
 ## Contributing
 
-* Feel free to contribute with any of the items in the backlog
+* Feel free to contribute with any improvements
 
 To Contribute via Issue Notice:
 * Write up a description of the problem
