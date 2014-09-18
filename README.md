@@ -5,7 +5,7 @@ A huge thanks to Jonathan Warrick who created the first version of this script a
 Bash script to easily generate AngularJS app module files and directories.
 
 ## Usage
-To use the script, include it in the root directory of your project.
+To use the script, include it in a directory of your project.
 Run the script passing it a directory where your modules will be created and the name of all modules that you want to create.
 
 ```
